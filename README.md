@@ -69,13 +69,18 @@ Steve has provided us with a started code to work with, but before we start addi
 
 **[Adding New Code]**
 
+
 Now that we reviewed the starting code, we can complete the rest of the subroutine in order to perform our analysis. First we would want to declare any variables or arrays we would need.
 
 ![RowCount, dim for index, tickerVolumes, StartinPrice and EndingPrice](https://user-images.githubusercontent.com/96326293/148661289-5c607164-d34b-465f-b190-737af5010959.PNG)
 >Line 39 - Set active sheet
+>
 >Line 42 - set row count variable to last row in "A" column with data
+>
 >Line 45 - creating ticker index variable and declare variable as byte
+>
 >Line 48 to 50 - declaring output arrays of tickerVolume as double, tickerStartingPrices as single and tickerEndingPrcies as single
+
 
 Next we would want to set up a for loop to run for each of our tickers starting at ticker 0
 We also need to set our tickerVolumes = 0 in order to add each ticker's volume.
@@ -87,12 +92,14 @@ We also need to set our tickerVolumes = 0 in order to add each ticker's volume.
 >
 >Line 56 - initialize tickerVolumes = 0
 
+
 After looping for all tickers, we need to nest another loop for each ticker value to run through each row of our spreadsheet.
 
 ![Loop for all rows](https://user-images.githubusercontent.com/96326293/148663147-2d1129f9-2374-4475-8ae8-cc4491d0f2c9.PNG)
 >Line 59 - Set active worksheet to yearValue again for loop to run through dataset
 >
 >Line 61 - Start for loop i to run loop through row 2 to RowCount
+
 
 Now that our loops have been set up, we need to create if statments to add up total tickerVolumes. We also need to create if statment to find what the ticker start and end prices are.
 
@@ -107,4 +114,31 @@ Now that our loops have been set up, we need to create if statments to add up to
 >
 >>same logic for when we did starting price but we are looking at (i+1,1) to verify ticker's ending price
 >
->line 82 - For loop to move to next i to run if statments again
+>Line 82 - For loop to move to next i to run if statments again
+
+
+Since we have the output data for the ticker from our first loop, we need to output the data before moving on to the next Index.
+
+![Output data in worksheet](https://user-images.githubusercontent.com/96326293/148667699-f5704f12-651b-490f-9ae2-5e1eee6c795e.PNG)
+>Line 84 - Declaring our output data will go into worksheet "All Stocks Analysis"
+>
+>Line 85 to 86 - Where data for ticker and tickerVolumes are place
+>
+>Line 86 - We ticker (Ending Price/ Start Price) - 1 to get the %  change over each year
+>
+>Line 89 - For loop to move to next Index to run for next ticker
+
+## **Results**
+
+After running the code for both years we got:
+
+![All Stocks 2017](https://user-images.githubusercontent.com/96326293/148668392-5ad201cf-4579-4ce6-93d0-959983e36480.png)
+
+![All Stocks 2018](https://user-images.githubusercontent.com/96326293/148668395-9158f2a8-0a56-4682-bfab-36010a60b0da.png)
+
+**[Summary]**
+
+Comparing the time elapsed from the original code vs refactored code, we actually saw a slight increase in time with the refactored code.
+This slight increase in time is due to the output formating section in the refactored code.
+Even though our refactored code increase in time, the output formating will benefit Steve greatly when looking at the output data.
+The color coding in % return will make it easier for Steve to spot which stocks are in the positives and negatives.
