@@ -33,7 +33,7 @@ Steve has provided us with a started code to work with, but before we start addi
 ![Format output sheet](https://user-images.githubusercontent.com/96326293/148659982-de0a2661-98b1-4fcd-a5d7-96ef457cb5f6.PNG)
 >Line 11 - Declaring which worksheet the headers will go
 >
->Line 13 - For range "A1" we want value = All stocks + year inputed from Line 6
+>Line 13 - For range "A1" we want value = All stocks + year inputted from Line 6
 >
 >Line 16 to 20 - Set headers for output data
 
@@ -70,7 +70,7 @@ Steve has provided us with a started code to work with, but before we start addi
 **[Adding New Code]**
 
 
-Now that we reviewed the starting code, we can complete the rest of the subroutine in order to perform our analysis. First we would want to declare any variables or arrays we would need.
+Now that we reviewed the starting code, we can complete the rest of the subroutine to perform our analysis. First, we would want to declare any variables or arrays we would need.
 
 ![RowCount, dim for index, tickerVolumes, StartinPrice and EndingPrice](https://user-images.githubusercontent.com/96326293/148661289-5c607164-d34b-465f-b190-737af5010959.PNG)
 >Line 39 - Set active sheet
@@ -101,20 +101,20 @@ After looping for all tickers, we need to nest another loop for each ticker valu
 >Line 61 - Start for loop i to run loop through row 2 to RowCount
 
 
-Now that our loops have been set up, we need to create if statments to add up total tickerVolumes. We also need to create if statment to find what the ticker start and end prices are.
+Now that our loops have been set up, we need to create if statements to add up total tickerVolumes. We also need to create if statement to find what the ticker start and end prices are.
 
 ![if statment for ticker volumes, start and end price](https://user-images.githubusercontent.com/96326293/148663517-c0aa0957-2113-40c3-8af4-c985841cfb7b.PNG)
->Line 64 to 68 - If statment for cell value (i,1) is equal to ticker then we would add cell value (i,8) to our running ticker's tickerVolume
+>Line 64 to 68 - If statement for cell value (i,1) is equal to ticker then we would add cell value (i,8) to our running ticker's tickerVolume
 >
->Line 70 to 74 - If statment for if cell value (i-1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is starting price
+>Line 70 to 74 - If statement for if cell value (i-1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is starting price
 >
 >>we use (i-1,1) because the ticker dataset is sorted by ticker and date. If the row value before does not match ticker then the current row value must be starting price
 >
->Line 76 to 81, If statment for if cell value (i+1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is ending price
+>Line 76 to 81, If statement for if cell value (i+1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is ending price
 >
 >>same logic for when we did starting price but we are looking at (i+1,1) to verify ticker's ending price
 >
->Line 82 - For loop to move to next i to run if statments again
+>Line 82 - For loop to move to next i to run if statements again
 
 
 Since we have the output data for the ticker from our first loop, we need to output the data before moving on to the next Index.
@@ -138,7 +138,7 @@ After running the code for both years we got:
 
 **[Summary]**
 
-Comparing the time elapsed from the original code vs refactored code, we actually saw a slight increase in time with the refactored code.
-This slight increase in time is due to the output formating section in the refactored code.
-Even though our refactored code increase in time, the output formating will benefit Steve greatly when looking at the output data.
+Comparing the time elapsed from the original code vs refactored code, we saw a slight increase in time with the refactored code.
+This slight increase in time is due to the output formatting section in the refactored code.
+Even though our refactored code increase in time, the output formatting will benefit Steve greatly when looking at the output data.
 The color coding in % return will make it easier for Steve to spot which stocks are in the positives and negatives.
