@@ -128,11 +128,11 @@ At this point in our subroutine, our nested loop (loop i) has run through all th
 >
 >Line 89 - For loop to move to next Index to run for next ticker
 
-Once the data as been added and hits line 89, the first loop will start again for the next index value until it reaches its end. This mean the nested loop would be run again as well. In total this subroutine will run through 11 tickers and 15,824 rows which is total of 174,064 rows ran.
+Once the data has been added and the subroutine reaches line 89, the first loop will start again for the next index value until it reaches its end. This mean the nested loop would be run again as well. In total this subroutine will run through 15,824 rows for 11 tickers which is total of 174,064 rows ran.
 
 ## **Results**
 
-After running the code for both years we got:
+After running the code for both years we our output data looks like this:
 
 ![All Stocks 2017](https://user-images.githubusercontent.com/96326293/148668392-5ad201cf-4579-4ce6-93d0-959983e36480.png)
 
@@ -144,3 +144,9 @@ Comparing the time elapsed from the original code vs refactored code, we saw a s
 This slight increase in time is due to the output formatting section in the refactored code.
 Even though our refactored code increase in time, the output formatting will benefit Steve greatly when looking at the output data.
 The color coding in % return will make it easier for Steve to spot which stocks are in the positives and negatives.
+
+**[Limitations]**
+
+Looking back at the code, an improvement we could do is to create a variable for all the Cells.Values. This will make it easier for someone else to interpret the code if they need to edit it or if the column format changes we can easily access all the Cells.Values. Examples of how this would look like is:
+
+![Creating variable for Cells](https://user-images.githubusercontent.com/96326293/149077180-8cf9eed8-c198-4acd-a651-987c7a7369bf.PNG)
