@@ -40,7 +40,7 @@ Steve has provided us with a started code to work with, but before we start addi
 ![ticker array](https://user-images.githubusercontent.com/96326293/148660161-61f9e1a4-3ede-41ff-8e9e-b0078bb17e21.PNG)
 >Line 23 - Declaring tickers array as string
 >
->Line 25 to 36 - set value of each ticker to array
+>Line 25 to 36 - Set value of each ticker to array
 
 ![Formatting](https://user-images.githubusercontent.com/96326293/148660243-98bbdf28-914d-450f-b457-b5db056cefa4.PNG)
 >Line 94 - Declaring active sheet as All Stocks Analysis
@@ -51,7 +51,7 @@ Steve has provided us with a started code to work with, but before we start addi
 >
 >Line 101,102 - Declaring dataRowStart = 4 and dataRowEnd = 15
 >
->Line 104 to line 116 - creating for loop to format color coding for output %
+>Line 104 to line 116 - Creating for loop to format color coding for output %
 >
 >>Line 104 - Loop through dataRowStart to dataRow End
 >>
@@ -75,22 +75,22 @@ Now that we reviewed the starting code, we can complete the rest of the subrouti
 ![RowCount, dim for index, tickerVolumes, StartinPrice and EndingPrice](https://user-images.githubusercontent.com/96326293/148661289-5c607164-d34b-465f-b190-737af5010959.PNG)
 >Line 39 - Set active sheet
 >
->Line 42 - set row count variable to last row in "A" column with data
+>Line 42 - Set row count variable to last row in "A" column with data
 >
->Line 45 - creating ticker index variable and declare variable as byte
+>Line 45 - Creating ticker index variable and declare variable as byte
 >
->Line 48 to 50 - declaring output arrays of tickerVolume as double, tickerStartingPrices as single and tickerEndingPrcies as single
+>Line 48 to 50 - Declaring output arrays of tickerVolume as double, tickerStartingPrices as single and tickerEndingPrcies as single
 
 
 Next we would want to set up a for loop to run for each of our tickers starting at ticker 0.
 We also need to set our tickerVolumes = 0 in order to add each ticker's volume.
 
 ![image](https://user-images.githubusercontent.com/96326293/148663022-5853acd6-5e6e-4ee1-9c28-ff3664bc2cc3.png)
->Line 54 - start for loop at 0 and then loop to ticker 11 to finish.
+>Line 54 - Start for loop at 0 and then loop to ticker 11 to finish.
 >
->Line 55 - set ticker = ticker(index) for easier reference
+>Line 55 - Set ticker = ticker(index) for easier reference
 >
->Line 56 - initialize tickerVolumes = 0
+>Line 56 - Initialize tickerVolumes = 0
 
 
 After looping for all tickers, we need to nest another loop for each ticker value to run through each row of our spreadsheet.
@@ -106,18 +106,18 @@ Now that our loops have been set up, we need to create if statements to add up t
 ![if statment for ticker volumes, start and end price](https://user-images.githubusercontent.com/96326293/148663517-c0aa0957-2113-40c3-8af4-c985841cfb7b.PNG)
 >Line 64 to 68 - If statement for cell value (i,1) is equal to ticker then we would add cell value (i,8) to our running ticker's tickerVolume
 >
->Line 70 to 74 - If statement for if cell value (i-1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is starting price
+>Line 70 to 74 - If statement for if cell value (i-1,1) is not equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is starting price
 >
->>we use (i-1,1) because the ticker dataset is sorted by ticker and date. If the row value before does not match ticker then the current row value must be starting price
+>>We use (i-1,1) because the ticker dataset is sorted by ticker and date. If the row value before does not match ticker then the current row value must be starting price
 >
->Line 76 to 81, If statement for if cell value (i+1,1) is equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is ending price
+>Line 76 to 81, If statement for if cell value (i+1,1) is not equal to ticker and if cell value (i,1) is equal to ticker then cell value (i,6) is ending price
 >
->>same logic for when we did starting price but we are looking at (i+1,1) to verify ticker's ending price
+>>Same logic for when we did starting price but we are looking at (i+1,1) to verify ticker's ending price
 >
->Line 82 - For loop to move to next i to run if statements again
+>Line 82 - For loop to move to next i, in this case next row, and run if statements again
 
 
-Since we have the output data for the ticker from our first loop, we need to output the data before moving on to the next Index.
+At this point in our subroutine, our nested loop (loop i) has run through all the rows and compiled tickerVolumes, tickerStartingPrice and tickerEndingpprices for the current ticker in the tickers(index) array. Before we move to the next ticker in our tickers index loop, we need to output the data into our table for Steve.
 
 ![Output data in worksheet](https://user-images.githubusercontent.com/96326293/148667699-f5704f12-651b-490f-9ae2-5e1eee6c795e.PNG)
 >Line 84 - Declaring our output data will go into worksheet "All Stocks Analysis"
@@ -127,6 +127,8 @@ Since we have the output data for the ticker from our first loop, we need to out
 >Line 86 - We ticker (Ending Price/ Start Price) - 1 to get the %  change over each year
 >
 >Line 89 - For loop to move to next Index to run for next ticker
+
+Once the data as been added and hits line 89, the first loop will start again for the next index value until it reaches its end. This mean the nested loop would be run again as well. In total this subroutine will run through 11 tickers and 15,824 rows which is total of 174,064 rows ran.
 
 ## **Results**
 
