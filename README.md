@@ -82,7 +82,7 @@ Now that we reviewed the starting code, we can complete the rest of the subrouti
 >Line 48 to 50 - declaring output arrays of tickerVolume as double, tickerStartingPrices as single and tickerEndingPrcies as single
 
 
-Next we would want to set up a for loop to run for each of our tickers starting at ticker 0
+Next we would want to set up a for loop to run for each of our tickers starting at ticker 0.
 We also need to set our tickerVolumes = 0 in order to add each ticker's volume.
 
 ![image](https://user-images.githubusercontent.com/96326293/148663022-5853acd6-5e6e-4ee1-9c28-ff3664bc2cc3.png)
